@@ -21,8 +21,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ backend/
 COPY app.py .
 COPY start.sh .
+COPY .streamlit/ .streamlit/
 RUN chmod +x start.sh
 
-EXPOSE 8501
-
-CMD ["./start.sh"]
+# Railway injects PORT at runtime — do not hardcode it here
+CMD ["bash", "start.sh"]
