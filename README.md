@@ -66,11 +66,9 @@ docker run -p 8501:8501 sargon
 1. **Sign up** at [railway.app](https://railway.app) and create a new project.
 2. **Connect** your GitHub repo (`emiliomt/sargon`).
 3. Railway auto-detects the `Dockerfile` and `railway.toml`.
-4. **Set environment variables** (optional):
-   - `PORT` — defaults to `8501`
-5. Click **Deploy**. Railway builds the image, starts both FastAPI and Streamlit, and gives you a public URL.
+4. Click **Deploy**. Railway builds the image, starts both FastAPI and Streamlit, and gives you a public URL.
 
-The `start.sh` script launches the FastAPI backend on `localhost:8000` and Streamlit on `$PORT` (Railway's auto-assigned public port).
+The `start.sh` script launches the FastAPI backend on `localhost:8000` and Streamlit on Railway's auto-assigned `$PORT`. Do **not** override `PORT` manually in Railway settings — the platform injects it automatically.
 
 ---
 
@@ -114,4 +112,4 @@ Returns the questionnaire options.
 | Variable | Default | Description |
 |---|---|---|
 | `API_URL` | `http://localhost:8000` | URL the Streamlit app uses to reach the FastAPI backend |
-| `PORT` | `8501` | Port that Streamlit listens on |
+| `PORT` | *(set by Railway)* | Port that Streamlit listens on — do not override on Railway |
